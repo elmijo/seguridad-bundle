@@ -1,0 +1,27 @@
+{
+    "name": "elmijo/seguridad-bundle",
+    "type": "symfony-bundle",
+    "description": "Paquete de Symfony 2 para manejar toda la seguridad de tusa proyectos symfony",
+    "keywords": ["user, usuarios, usuario, management, administrar, admin, login, register, registrar, bundle"],
+    "homepage": "https://github.com/ElMijo/seguridad-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jerry Anselmi",
+            "email": "jerry.anselimi@gmail.com",
+            "homepage": "http://elmijo.net.ve",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "~2.1",
+        "symfony/form": "~2.1",
+        "symfony/security-bundle": "~2.1"
+    },
+    "autoload": {
+        "psr-0": { "ElMijo\\SeguridadBundle": "" }
+    },
+    "target-dir": "ElMijo/SeguridadBundle"
+}
