@@ -2,6 +2,7 @@
 
 namespace ElMijo\SeguridadBundle\Entity;
 
+use Symfony\Component\Security\Core\Role\RoleInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use ElMijo\SeguridadBundle\Entity\Usuario;
@@ -12,7 +13,7 @@ use ElMijo\SeguridadBundle\Entity\Usuario;
  * @ORM\Table(name="rol")
  * @ORM\Entity
  */
-class Rol
+class Rol implements RoleInterface
 {
     /**
      * @var integer
@@ -109,12 +110,12 @@ class Rol
     /**
      * Add usuarios
      *
-     * @param \ElMijo\SeguridadBundle\Entity\Usuario $usuarios
+     * @param \ElMijo\SeguridadBundle\Entity\Usuario $usuario
      * @return Rol
      */
-    public function addUsuario(Usuario $usuarios)
+    public function addUsuario(Usuario $usuario)
     {
-        $this->usuarios[] = $usuarios;
+        $this->usuarios[] = $usuario;
 
         return $this;
     }
@@ -122,11 +123,11 @@ class Rol
     /**
      * Remove usuarios
      *
-     * @param \ElMijo\SeguridadBundle\Entity\Usuario $usuarios
+     * @param \ElMijo\SeguridadBundle\Entity\Usuario $usuario
      */
-    public function removeUsuario(Usuario $usuarios)
+    public function removeUsuario(Usuario $usuario)
     {
-        $this->usuarios->removeElement($usuarios);
+        $this->usuarios->removeElement($usuario);
     }
 
     /**

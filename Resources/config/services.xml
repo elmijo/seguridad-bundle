@@ -17,4 +17,14 @@
         </service>
     </services>
     -->
+    <parameters>
+        <parameter key="el_mijo_seguridad.sendmail.class">ElMijo\SeguridadBundle\Service\SendMail</parameter>
+    </parameters>
+
+    <services>
+        <service id="security.sendmail" class="%el_mijo_seguridad.sendmail.class%">
+            <argument type="service" id="mailer" />
+            <argument type="service" id="swiftmailer.mailer.default.transport.real" />
+        </service>
+    </services>
 </container>

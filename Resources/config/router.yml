@@ -1,0 +1,9 @@
+el_mijo_seguridad_bundle:
+    resource: "@ElMijoSeguridadBundle/Controller/"
+    type:     annotation
+
+login_check:
+    pattern: /login_check
+
+logout:
+    pattern: /logout
