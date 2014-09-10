@@ -66,7 +66,7 @@ class UsuarioRepository extends EntityRepository implements UserProviderInterfac
         return $this->getEntityName() === $class || is_subclass_of($class, $this->getEntityName());
     }
 
-    public function existeUsuarioAdmin()
+    public function existeUsuarioSuperAdmin()
     {
         $q   = $this
             ->createQueryBuilder('u')
@@ -112,6 +112,20 @@ class UsuarioRepository extends EntityRepository implements UserProviderInterfac
         ;
 
         return !is_null($q->getOneOrNullResult());
-    }     
+    }
 
+    public function superAdminEmail()
+    {
+        $q   = $this
+            ->createQueryBuilder('u')
+            ->select('u, r')
+            ->leftJoin('u.roles', 'r')            
+            ->where('r.role = :role')
+            ->setParameter('role', 'ROLE_SUPER_ADMIN')
+            ->getQuery()
+        ;
+
+        $r   = $q->getOneOrNullResult();
+        return !is_null($r)?$r->getEmail():FALSE;
+    }
 }
